@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="hardmob_azul">#1168EF</color>
+    <color name="youtube_red">#FF0000</color>
+    <color name="green">#59981A</color>
+    <color name="yellow_green">#ECF87F</color>
+    <color name="lime_green">#81B622</color>
+    <color name="olive_green">#3D550C</color>
+    <color name="my_black">#333335</color>
+    <color name="my_blue">#2D3540</color>
+    <color name="my_ligth">#B9C7D2</color>
 </resources>
