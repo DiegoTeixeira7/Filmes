@@ -13,7 +13,7 @@
     <color name="yellow_green">#ECF87F</color>
     <color name="lime_green">#81B622</color>
     <color name="olive_green">#3D550C</color>
-    <color name="my_black">#333335</color>
-    <color name="my_blue">#2D3540</color>
-    <color name="my_ligth">#B9C7D2</color>
+    <color name="orange_700">#F4864B</color>
+    <color name="orange_500">#F4864B</color>
+    <color name="orange_200">#F6A06C</color>
 </resources>
