@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/johnwick"/>
+        app:srcCompat="@drawable/velo4"/>
     <Button android:id="@+id/btn_continuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
     <ImageButton android:id="@+id/btn_like"
         android:layout_width="53dp"
         android:layout_height="45dp"
-        android:background="@color/orange_200"
+        android:background="@color/yellow_200"
         android:onClick="likeDeslike"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
