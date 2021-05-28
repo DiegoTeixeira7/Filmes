@@ -2,10 +2,12 @@ package com.example.filmes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,10 +16,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView;
-    private List<Foto> fotos;
+    private List<Filme> filmes;
     private int atual;
     private TextView textView;
     private ImageButton imageButton;
+    private TextView titulo;
+    private Switch isHD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,61 +34,52 @@ public class MainActivity extends AppCompatActivity {
     private void inicialize() {
         imageView = findViewById(R.id.imagem);
 
-        fotos = new ArrayList<>();
+        filmes = new ArrayList<>();
 
-        Foto foto1 = new Foto(R.drawable.velo4, "Depois de ser visto rumo ao México no filme que deu origem a série, Dominic \"Dom\" Toretto (Vin Diesel) reaparece na República Dominicana praticando seus golpes ao lado de sua namorada Letty (Michelle Rodriguez) e sua gangue. Com o FBI na sua cola, Dom decide fugir para não comprometer seus comparsas. Contudo, um assassinato cometido por um traficante de drogas acende nele uma sede de vingança que o faz cruzar novamente com o agente Brian O'Conner (Paul Walker) numa perigosa missão.");
-        Foto foto2 = new Foto(R.drawable.velo5, "Em Velozes & Furiosos 5 - Operação Rio, Dominic Toretto (Vin Diesel) foi resgatado da prisão por sua irmã Mia (Jordana Brewster) e Brian O'Conner (Paul Walker), que realizam um ousado resgate sobre rodas. Logo em seguida, ele desaparece. Brian e Mia vão até o Rio de Janeiro, onde encontram Vince (Matt Schulze). Ele propõe ao casal o roubo de carros que estão sendo levados em um trem, algo que, segundo ele, será uma operação simples que renderá um bom lucro.");
-        Foto foto3 = new Foto(R.drawable.velo6, "Em Velozes e Furiosos 6, os heróis se espalham pelo mundo após o golpe de Dom (Vin Diesel) e Brian (Paul Walker) no Rio de Janeiro que deixou o grupo com US$100 milhões. Mas a incapacidade de voltar para casa e viver em um lar tornou suas vidas incompletas. Enquanto isso, Hobbs (Dwayne Johnson) esteve perseguindo uma organização de mercenários sobre rodas, um grupo de homens cruéis divididos em 12 países, cujo mentor (Luke Evans) tem ajuda da destemida Letty (Michelle Rodriguez), a antiga namorada de Dom, que ele acreditava estar morta.");
-        Foto foto4 = new Foto(R.drawable.velo7, "Velozes e Furiosos 7 acompanha Dom (Vin Diesel), Brian (Paul Walker), Letty (Michelle Rodriguez) e o resto da equipe após os acontecimentos em Londres. Apesar de terem suas chances de voltar para os Estados Unidos e recomeçarem suas vidas, a tranquilidade do grupo é destruída quando Deckard Shaw (Jason Statham), um assassino profissional, quer vingança pela morte de seu irmão. Agora, a equipe tem que se reunir para impedir este novo vilão. Mas dessa vez, não é só sobre ser veloz.");
-        Foto foto5 = new Foto(R.drawable.velo8, "Dom (Vin Diesel) e Letty (Michelle Rodriguez) estão curtindo a lua de mel em Havana, mas a súbita aparição de Cipher (Charlize Theron) atrapalha os planos do casal. Ela logo arma um plano para chantagear Dom, de forma que ele traia seus amigos e passe a ajudá-la a obter ogivas nucleares. Tal situação faz com Letty reúna os velhos amigos, que agora precisam enfrentar Cipher e, consequentemente, Dom.");
+        Filme filme1 = new Filme(R.drawable.velo4, "Dominic Toretto descobre que sua amada Letty foi assassinada e resolve procurar pelo autor do crime. Enquanto isso, o agente Brian O'Conner está em busca de um traficante de drogas. Eles percebem que talvez procurem a mesma pessoa.", "Velozes e Furiosos 4");
+        Filme filme2 = new Filme(R.drawable.velo5, "Desde que o ex-policial Brian O'Conner e Mia Toretto libertaram Dom da prisão, eles viajam pelo mundo para fugir das autoridades. No Rio de Janeiro, eles são obrigados a fazer um último trabalho antes de ganhar sua liberdade definitiva. Brian e Dom montam uma equipe de elite de pilotos de carro para executar a tarefa, mas precisam enfrentar um empresário corrupto e também um obstinado agente federal norte-americano.", "Velozes e Furiosos 5");
+        Filme filme3 = new Filme(R.drawable.velo6, "Desde que o golpe de Dom e Brian no Rio de Janeiro deixou o grupo com 100 milhões de dólares, a equipe se espalhou pelo mundo. Um dia, Hobbs pede a Dom que reúna um grupo de elite em Londres e apreenda uma organização de mercenários nas ruas, cujo mentor é apoiado por Letty, a antiga namorada de Dom que ele acreditava estar morta.", "Velozes e Furiosos 6");
+        Filme filme4 = new Filme(R.drawable.velo7, "Após os acontecimentos em Londres, Dom, Brian, Letty e o resto da equipe têm a chance de voltar para os Estados Unidos e recomeçar suas vidas. Mas a tranquilidade do grupo é destruída quando Deckard Shaw, um assassino profissional, quer vingança pelo acidente que deixou seu irmão em coma. Agora, a equipe tem de unir forças para deter um vilão novo e ainda mais perigoso. Dessa vez, não se trata apenas de uma questão de velocidade: a corrida é pela sobrevivência.", "Velozes e Furiosos 7");
+        Filme filme5 = new Filme(R.drawable.velo8, "Depois que Brian e Mia se aposentaram, e o resto da equipe foi exonerado, Dom e Letty estão em lua de mel e levam uma vida pacata e completamente normal. Mas a adrenalina do passado volta com tudo quando uma mulher misteriosa faz com que Dom retorne ao mundo do crime e da velocidade.", "Velozes e Furiosos 8");
 
-        fotos.add(foto1);
-        fotos.add(foto2);
-        fotos.add(foto3);
-        fotos.add(foto4);
-        fotos.add(foto5);
+        filmes.add(filme1);
+        filmes.add(filme2);
+        filmes.add(filme3);
+        filmes.add(filme4);
+        filmes.add(filme5);
 
         atual = 0;
 
         textView = findViewById(R.id.textoImagem);
-        textView.setText(fotos.get(atual).getDescricao());
+        textView.setText(filmes.get(atual).getDescricao());
 
+        titulo = findViewById(R.id.titulo);
+        titulo.setText(filmes.get(atual).getTitulo());
+
+        isHD = findViewById(R.id.isHD);
         imageButton = findViewById(R.id.btn_like);
     }
 
     public void avance(View view) {
-//        atual = (atual + 1) % fotos.size(); // 0 1 2
-
-        if (atual == fotos.size() - 1) {
-            atual = 0;
-        } else {
-            atual++;
-        } // 0 1 2
-
-
-        imageView.setImageResource(fotos.get(atual).getId());
-        textView.setText(fotos.get(atual).getDescricao());
+        atual = (atual + 1) % filmes.size();
+        imageView.setImageResource(filmes.get(atual).getId());
+        textView.setText(filmes.get(atual).getDescricao());
+        titulo.setText(filmes.get(atual).getTitulo());
         recarregueLike();
     }
 
     public void volte(View view) {
-//        atual = (atual < 0) ? 0 : atual - 1; // 2 1 0
-        // atual = pergunta ? verdade : falsidade;
-        if (atual == 0) {
-            atual = fotos.size() - 1;
-        } else {
-            atual = atual - 1; // atual--;
-        }
-
-        imageView.setImageResource(fotos.get(atual).getId());
-        textView.setText(fotos.get(atual).getDescricao());
+        atual = (atual == 0) ? filmes.size() - 1 : atual - 1;
+        imageView.setImageResource(filmes.get(atual).getId());
+        textView.setText(filmes.get(atual).getDescricao());
+        titulo.setText(filmes.get(atual).getTitulo());
         recarregueLike();
     }
 
     private void recarregueLike() {
-        Foto fotoAtual = fotos.get(atual);
+        Filme filmeAtual = filmes.get(atual);
 
-        if (fotoAtual.isLike()) {
+        if (filmeAtual.isLike()) {
             imageButton.setImageResource(R.drawable.like_on);
         } else {
             imageButton.setImageResource(R.drawable.like_off);
@@ -92,13 +87,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void likeDeslike(View view) {
-        Foto fotoAtual = fotos.get(atual);
-        if (fotoAtual.isLike()) {
-            fotoAtual.setLike(false);
+        Filme filmeAtual = filmes.get(atual);
+        if (filmeAtual.isLike()) {
+            filmeAtual.setLike(false);
             imageButton.setImageResource(R.drawable.like_off);
         } else {
-            fotoAtual.setLike(true);
+            filmeAtual.setLike(true);
             imageButton.setImageResource(R.drawable.like_on);
         }
+    }
+
+    public void abrirVideo(View view) {
+        Intent it = new Intent(this, PlayerActivity.class);
+        it.putExtra("atual", atual);
+        it.putExtra("isHD", isHD.isChecked());
+        startActivity(it);
     }
 }
