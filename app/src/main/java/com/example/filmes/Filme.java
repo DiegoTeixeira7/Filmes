@@ -3,8 +3,6 @@ package com.example.filmes;
 public class Filme {
 
     private int id;
-    private int idVideo;
-    private int idVideoHd;
     private String descricao;
     private String titulo;
     private boolean like;

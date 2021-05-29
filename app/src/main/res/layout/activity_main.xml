@@ -1,112 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
-    <ImageButton android:id="@+id/btn_continuar"
-        android:layout_width="53dp"
-        android:layout_height="45dp"
-        android:onClick="avance"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo"
-        app:layout_constraintVertical_bias="0.03"
-        android:background="@color/white"
-        android:src="@drawable/ic_baseline_skip_next_24"/>
-    <ImageButton android:id="@+id/play"
-        android:layout_width="53dp"
-        android:layout_height="45dp"
-        android:onClick="verTrailer"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_continuar"
-        app:layout_constraintStart_toEndOf="@+id/btn_voltar"
-        app:layout_constraintTop_toBottomOf="@+id/titulo"
-        app:layout_constraintVertical_bias="0.03"
-        android:background="@color/white"
-        android:src="@drawable/ic_baseline_play_arrow_24" />
-    <ImageButton
-        android:id="@+id/btn_voltar"
-        android:layout_width="53dp"
-        android:layout_height="45dp"
-        android:onClick="volte"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo"
-        app:layout_constraintVertical_bias="0.03"
-        android:background="@color/white"
-        android:src="@drawable/ic_baseline_skip_previous_24"/>
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
 
-    <Switch
-        android:id="@+id/HD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ativar trailer em HD"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.03"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_voltar"
-        tools:ignore="MissingConstraints,UseSwitchCompatOrMaterialXml" />
+        <ImageButton
+            android:id="@+id/btn_voltar"
+            android:layout_width="53dp"
+            android:layout_height="45dp"
+            android:onClick="volte"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            app:layout_constraintVertical_bias="0.035"
+            android:background="@color/white"
+            android:src="@drawable/ic_baseline_skip_previous_24"/>
 
-    <ImageButton android:id="@+id/btn_like"
-        android:layout_width="53dp"
-        android:layout_height="45dp"
-        android:background="@color/white"
-        android:onClick="likeDeslike"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintVertical_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_voltar"
-        app:srcCompat="@drawable/like_off"/>
 
-    <ImageView
-        android:id="@+id/imagem"
-        android:layout_width="0dp"
-        android:layout_height="262dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_voltar"
-        app:srcCompat="@drawable/aorigem"/>
+        <ImageButton android:id="@+id/play"
+            android:layout_width="53dp"
+            android:layout_height="45dp"
+            android:onClick="verTrailer"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_continuar"
+            app:layout_constraintStart_toEndOf="@+id/btn_voltar"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            app:layout_constraintVertical_bias="0.035"
+            android:background="@color/white"
+            android:src="@drawable/ic_baseline_play_arrow_24" />
 
-    <TextView
-        android:id="@+id/textoImagem"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginRight="14dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagem"
-        />
+        <ImageButton android:id="@+id/btn_continuar"
+            android:layout_width="53dp"
+            android:layout_height="45dp"
+            android:onClick="avance"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            app:layout_constraintVertical_bias="0.035"
+            android:background="@color/white"
+            android:src="@drawable/ic_baseline_skip_next_24"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Switch
+            android:id="@+id/HD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ativar trailer em HD"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintVertical_bias="0.03"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_voltar"
+            tools:ignore="MissingConstraints,UseSwitchCompatOrMaterialXml" />
+
+        <ImageView
+            android:id="@+id/imagem"
+            android:layout_width="0dp"
+            android:layout_height="262dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_voltar"
+            app:srcCompat="@drawable/aorigem"/>
+
+        <TextView
+            android:id="@+id/textoImagem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagem"
+            />
+
+        <ImageButton android:id="@+id/btn_like"
+            android:layout_width="53dp"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:onClick="likeDeslike"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_continuar"
+            app:layout_constraintStart_toEndOf="@+id/btn_voltar"
+            app:layout_constraintTop_toBottomOf="@+id/textoImagem"
+            app:layout_constraintVertical_bias="0.36"
+            app:srcCompat="@drawable/like_off"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

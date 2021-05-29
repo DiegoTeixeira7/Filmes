@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">Filmes</string>
-    <string name="btn_continuar">avançar</string>
-    <string name="btn_voltar">voltar</string>
 </resources>
