@@ -2,10 +2,12 @@ package com.example.filmes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,11 +16,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView;
-    private List<Foto> fotos;
+    private List<Filme> filmes;
     private List<String> descricoes;
+    private List<Integer> idsVideo;
+    private List<Integer> idsVideoHD;
     private int atual;
     private TextView textView;
     private ImageButton imageButton;
+    private TextView titulo;
+    private Switch HD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,40 +45,56 @@ public class MainActivity extends AppCompatActivity {
         descricoes.add("Em Até o Último Homem, durante a Segunda Guerra Mundial, o médico do exército Desmond T. Doss (Andrew Garfield) se recusa a pegar em uma arma e matar pessoas, porém, durante a Batalha de Okinawa ele trabalha na ala médica e salva mais de 75 homens, sendo condecorado. O que faz de Doss o primeiro Opositor Consciente da história norte-americana a receber a Medalha de Honra do Congresso.");
         descricoes.add("Em Vingadores: Ultimato, após Thanos eliminar metade das criaturas vivas em Vingadores: Guerra Infinita, os heróis precisam lidar com a dor da perda de amigos e seus entes queridos. Com Tony Stark (Robert Downey Jr.) vagando perdido no espaço sem água nem comida, o Capitão América/Steve Rogers (Chris Evans) e a Viúva Negra/Natasha Romanov (Scarlett Johansson) precisam liderar a resistência contra o titã louco.");
 
-        fotos = new ArrayList<>();
+        idsVideo = new ArrayList<>();
 
-        Foto foto1 = new Foto(R.drawable.aorigem, descricoes.get(0));
-        Foto foto2 = new Foto(R.drawable.interestelar, descricoes.get(1));
-        Foto foto3 = new Foto(R.drawable.perdidoemmarte, descricoes.get(2));
-        Foto foto4 = new Foto(R.drawable.ateoultimohomem, descricoes.get(3));
-        Foto foto5 = new Foto(R.drawable.vingadoresultimato, descricoes.get(4));
+        idsVideo.add(R.raw.aorigem);
+        idsVideo.add(R.raw.interestelar);
+        idsVideo.add(R.raw.perdidoemmarte);
+        idsVideo.add(R.raw.ateoultimohomem);
+        idsVideo.add(R.raw.vingadoresultimato);
 
-        fotos.add(foto1);
-        fotos.add(foto2);
-        fotos.add(foto3);
-        fotos.add(foto4);
-        fotos.add(foto5);
+        idsVideoHD = new ArrayList<>();
+
+        idsVideoHD.add(R.raw.aorigemhd);
+        idsVideoHD.add(R.raw.interestelarhd);
+        idsVideoHD.add(R.raw.perdidoemmartehd);
+        idsVideoHD.add(R.raw.ateoultimohomemhd);
+        idsVideoHD.add(R.raw.vingadoresultimatohd);
+
+        filmes = new ArrayList<>();
+
+        Filme filme1 = new Filme(R.drawable.aorigem, descricoes.get(0), "A origem");
+        Filme filme2 = new Filme(R.drawable.interestelar, descricoes.get(1), "Interestelar");
+        Filme filme3 = new Filme(R.drawable.perdidoemmarte, descricoes.get(2), "Perdido em marte");
+        Filme filme4 = new Filme(R.drawable.ateoultimohomem, descricoes.get(3), "Até o último homem");
+        Filme filme5 = new Filme(R.drawable.vingadoresultimato, descricoes.get(4), "Vingadores ultimato");
+
+        filmes.add(filme1);
+        filmes.add(filme2);
+        filmes.add(filme3);
+        filmes.add(filme4);
+        filmes.add(filme5);
 
         atual = 0;
 
         textView = findViewById(R.id.textoImagem);
-        textView.setText(fotos.get(atual).getDescricao());
-
         imageButton = findViewById(R.id.btn_like);
+        titulo = findViewById(R.id.titulo);
+        HD = findViewById(R.id.HD);
+
+        carregar();
     }
 
     public void avance(View view) {
 //        atual = (atual + 1) % fotos.size(); // 0 1 2 3 4
 
-        if (atual == fotos.size() - 1) {
+        if (atual == filmes.size() - 1) {
             atual = 0;
         } else {
             atual++;
         } // 0 1 2 3 4
 
-
-        imageView.setImageResource(fotos.get(atual).getId());
-        textView.setText(fotos.get(atual).getDescricao());
+        carregar();
         recarregueLike();
     }
 
@@ -85,15 +107,14 @@ public class MainActivity extends AppCompatActivity {
             atual = atual - 1; // atual--;
         }
 
-        imageView.setImageResource(fotos.get(atual).getId());
-        textView.setText(fotos.get(atual).getDescricao());
+        carregar();
         recarregueLike();
     }
 
     private void recarregueLike() {
-        Foto fotoAtual = fotos.get(atual);
+        Filme filmeAtual = filmes.get(atual);
 
-        if (fotoAtual.isLike()) {
+        if (filmeAtual.isLike()) {
             imageButton.setImageResource(R.drawable.like_on);
         } else {
             imageButton.setImageResource(R.drawable.like_off);
@@ -101,13 +122,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void likeDeslike(View view) {
-        Foto fotoAtual = fotos.get(atual);
-        if (fotoAtual.isLike()) {
-            fotoAtual.setLike(false);
+        Filme filmeAtual = filmes.get(atual);
+        if (filmeAtual.isLike()) {
+            filmeAtual.setLike(false);
             imageButton.setImageResource(R.drawable.like_off);
         } else {
-            fotoAtual.setLike(true);
+            filmeAtual.setLike(true);
             imageButton.setImageResource(R.drawable.like_on);
         }
+    }
+
+    private void carregar() {
+        imageView.setImageResource(filmes.get(atual).getId());
+        textView.setText(filmes.get(atual).getDescricao());
+        titulo.setText(filmes.get(atual).getTitulo());
+    }
+
+    public void verTrailer(View view) {
+        Intent it = new Intent(this, PlayerActivity.class);
+        int idVideo = idsVideo.get(atual);
+
+        if(HD.isChecked()) {
+            idVideo = idsVideoHD.get(atual);
+        }
+
+        it.putExtra("idVideo", idVideo);
+        startActivity(it);
     }
 }
