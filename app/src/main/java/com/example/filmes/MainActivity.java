@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textoImagem);
         titulo = findViewById(R.id.titulo);
         imageButton = findViewById(R.id.btn_like);
-        modoHD = findViewById(R.id.isHD);
+        modoHD = findViewById(R.id.modoHD);
 
         carregueFilme();
     }
