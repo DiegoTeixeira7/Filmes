@@ -111,7 +111,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void abrirVideo(View view) {
         Intent it = new Intent(this, PlayerActivity.class);
-        it.putExtra("id", modoHD.isChecked() ? filmes.get(atual).getIdVideoHd() : filmes.get(atual).getIdVideo());
+        int id = 0;
+        if(modoHD.isChecked()) {
+            id = filmes.get(atual).getIdVideoHd();
+        } else {
+            id = filmes.get(atual).getIdVideo();
+        }
+        it.putExtra("id", id);
         startActivity(it);
     }
 }
