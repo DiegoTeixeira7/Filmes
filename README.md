@@ -13,8 +13,8 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 ### :arrow_forward: Em Execução:
 
 <p align="center">
- <img alt="Demontração Filmes" src="filmes1.gif" width="404px" heigth="720px">
- <img alt="Demontração Filmes" src="filmes2.gif" width="720px" heigth="404px">
+ <img alt="Demonstração Filmes" src="filmes1.gif" width="404px" heigth="720px">
+ <img alt="Demonstração Filmes" src="filmes2.gif" width="720px" heigth="404px">
 </p>
 
 ### :information_source: Como usar:
@@ -28,3 +28,6 @@ $ git clone https://github.com/DiegoTeixeira7/Filmes.git
 # Abra o projeto em seu Android Studio e execute
 
 ```
+
+### :memo: Licença
+Este projeto está sob a licença do MIT. Consulte a [LICENSE](https://github.com/DiegoTeixeira7/Filmes/blob/master/LICENSE) para obter mais informações.
